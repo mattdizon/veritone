@@ -115,8 +115,6 @@ npm run dev
    npm run start:dev
    ```
 
-   Note: TypeORM will automatically create the database tables on first run (synchronize is enabled in development).
-
 ## Tech Stack
 
 ### Frontend
