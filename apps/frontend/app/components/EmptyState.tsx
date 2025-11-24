@@ -38,7 +38,6 @@ const EmptyState = ({
         letterSpacing="0px"
         sx={{ 
           mb: '16px',
-          fontFamily: 'var(--font-nunito), sans-serif',
           fontSize: '18px',
           lineHeight: '24px',
         }}

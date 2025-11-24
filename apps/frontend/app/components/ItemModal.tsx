@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useRef, useEffect } from 'react';
 import {
   Dialog,
   DialogContent,
@@ -21,6 +21,7 @@ import { Close } from '@mui/icons-material';
 import { Title, Paragraph } from './typography';
 import { ItemFormData } from '../types/item-form-data';
 import { itemFormSchema } from '../schemas/item-form.schema';
+import { FONTS } from '../theme/constants';
 
 export type { ItemFormData };
 
@@ -54,8 +55,22 @@ const ItemModal = ({
     return `${mode}-${initialData?.itemName || 'new'}`;
   }, [open, mode, initialData?.itemName]);
 
+  const prevDialogKeyRef = useRef<string | undefined>(undefined);
   const [formData, setFormData] = useState<ItemFormData>(initialFormData);
   const [errors, setErrors] = useState<Record<string, string>>({});
+
+
+  useEffect(() => {
+    if (open && dialogKey && dialogKey !== prevDialogKeyRef.current) {
+      prevDialogKeyRef.current = dialogKey;
+      setTimeout(() => {
+        setFormData(initialFormData);
+        setErrors({});
+      }, 0);
+    } else if (!open) {
+      prevDialogKeyRef.current = undefined;
+    }
+  }, [open, dialogKey, initialFormData]);
 
   const handleChange = (field: keyof ItemFormData) => (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement> | { target: { value: string | boolean } }
@@ -141,8 +156,8 @@ const ItemModal = ({
           fontWeight="semibold"
           letterSpacing="0.25px"
           className="uppercase"
+          fontFamily="dosis"
           sx={{
-            fontFamily: 'var(--font-dosis), sans-serif',
             lineHeight: '100%',
           }}
         >
@@ -161,7 +176,6 @@ const ItemModal = ({
           letterSpacing="0px"
           sx={{
             mb: 1,
-            fontFamily: 'var(--font-nunito), sans-serif',
             fontSize: '18px',
             lineHeight: '24px',
           }}
@@ -176,7 +190,6 @@ const ItemModal = ({
           letterSpacing="0px"
           sx={{
             mb: 4,
-            fontFamily: 'var(--font-nunito), sans-serif',
             fontSize: '16px',
             lineHeight: '22px',
           }}
@@ -285,7 +298,7 @@ const ItemModal = ({
               sx={{
                 color: '#424242',
                 textTransform: 'none',
-                fontFamily: 'var(--font-nunito), sans-serif',
+                fontFamily: FONTS.nunito,
                 fontWeight: 600,
                 fontSize: '14px',
                 lineHeight: '100%',
@@ -308,7 +321,7 @@ const ItemModal = ({
               sx={{
                 textTransform: 'none',
                 px: 3,
-                fontFamily: 'var(--font-nunito), sans-serif',
+                fontFamily: FONTS.nunito,
                 fontWeight: 600,
                 fontSize: '14px',
                 lineHeight: '20px',

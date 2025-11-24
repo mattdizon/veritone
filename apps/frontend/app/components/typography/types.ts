@@ -3,6 +3,7 @@ export type TypographyWeight = 'light' | 'normal' | 'medium' | 'semibold' | 'bol
 export type TextDecoration = 'none' | 'underline' | 'line-through';
 export type TextAlign = 'left' | 'center' | 'right' | 'justify';
 export type TextColor = 'primary' | 'secondary' | 'error' | 'success' | 'warning' | 'default';
+export type FontFamily = 'dosis' | 'nunito';
 
 export interface BaseTypographyProps {
   size?: TypographySize;
@@ -10,6 +11,7 @@ export interface BaseTypographyProps {
   textDecoration?: TextDecoration;
   textAlign?: TextAlign;
   color?: TextColor;
+  fontFamily?: FontFamily;
   letterSpacing?: string | number;
   className?: string;
   children: React.ReactNode;

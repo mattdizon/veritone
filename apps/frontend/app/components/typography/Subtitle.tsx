@@ -2,7 +2,7 @@
 
 import { Typography, SxProps, Theme } from '@mui/material';
 import { BaseTypographyProps } from './types';
-import { getSizeStyles, getFontWeight, getTextColor } from './utils';
+import { getSizeStyles, getFontWeight, getTextColor, getFontFamily } from './utils';
 
 interface SubtitleProps extends BaseTypographyProps {
   as?: 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p';
@@ -16,6 +16,7 @@ const Subtitle = ({
   textDecoration = 'none',
   textAlign = 'left',
   color = 'secondary',
+  fontFamily = 'nunito',
   className,
   sx,
   children,
@@ -23,6 +24,7 @@ const Subtitle = ({
   const sizeStyles = getSizeStyles(size, 'subtitle');
   const weight = getFontWeight(fontWeight);
   const textColor = getTextColor(color);
+  const font = getFontFamily(fontFamily);
 
   return (
     <Typography
@@ -36,6 +38,7 @@ const Subtitle = ({
         textDecoration,
         textAlign,
         color: textColor,
+        fontFamily: font,
         ...sx,
       }}
     >

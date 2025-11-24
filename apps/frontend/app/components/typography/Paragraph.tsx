@@ -2,7 +2,7 @@
 
 import { Typography, SxProps, Theme } from '@mui/material';
 import { BaseTypographyProps } from './types';
-import { getSizeStyles, getFontWeight, getTextColor } from './utils';
+import { getSizeStyles, getFontWeight, getTextColor, getFontFamily } from './utils';
 
 interface ParagraphProps extends BaseTypographyProps {
   as?: 'p' | 'span' | 'div';
@@ -16,6 +16,7 @@ const Paragraph = ({
   textDecoration = 'none',
   textAlign = 'left',
   color = 'default',
+  fontFamily = 'nunito',
   className,
   sx,
   children,
@@ -23,6 +24,7 @@ const Paragraph = ({
   const sizeStyles = getSizeStyles(size, 'paragraph');
   const weight = getFontWeight(fontWeight);
   const textColor = getTextColor(color);
+  const font = getFontFamily(fontFamily);
 
   return (
     <Typography
@@ -36,6 +38,7 @@ const Paragraph = ({
         textDecoration,
         textAlign,
         color: textColor,
+        fontFamily: font,
         ...sx,
       }}
     >

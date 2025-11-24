@@ -2,7 +2,7 @@
 
 import { Typography, SxProps, Theme } from '@mui/material';
 import { BaseTypographyProps } from './types';
-import { getSizeStyles, getFontWeight, getTextColor } from './utils';
+import { getSizeStyles, getFontWeight, getTextColor, getFontFamily } from './utils';
 
 interface TitleProps extends BaseTypographyProps {
   as?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
@@ -16,6 +16,7 @@ const Title = ({
   textDecoration = 'none',
   textAlign = 'left',
   color = 'default',
+  fontFamily = 'nunito',
   letterSpacing,
   className,
   sx,
@@ -24,6 +25,7 @@ const Title = ({
   const sizeStyles = getSizeStyles(size, 'title');
   const weight = getFontWeight(fontWeight);
   const textColor = getTextColor(color);
+  const font = getFontFamily(fontFamily);
 
   return (
     <Typography
@@ -36,6 +38,7 @@ const Title = ({
         textDecoration,
         textAlign,
         color: textColor,
+        fontFamily: font,
         letterSpacing,
         ...sx,
       }}

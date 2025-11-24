@@ -2,6 +2,7 @@
 
 import { ThemeProvider as MUIThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
+import { FONTS } from './theme/constants';
 
 const theme = createTheme({
   palette: {
@@ -14,8 +15,9 @@ const theme = createTheme({
     },
   },
   typography: {
-    fontFamily: 'var(--font-dosis), sans-serif',
+    fontFamily: FONTS.nunito,
   },
+  fonts: FONTS,
 });
 
 const ThemeProvider = ({ children }: { children: React.ReactNode }) => {

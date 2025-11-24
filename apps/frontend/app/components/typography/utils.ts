@@ -1,5 +1,6 @@
-import { TypographySize, TypographyWeight } from './types';
+import { TypographySize, TypographyWeight, FontFamily } from './types';
 import { typographyConfig, ComponentType } from './config';
+import { FONTS } from '../../theme/constants';
 
 export type { ComponentType } from './config';
 
@@ -31,5 +32,9 @@ export const getTextColor = (color: string = 'default') => {
     default: '#424242',
   };
   return colorMap[color] || colorMap.default;
+};
+
+export const getFontFamily = (fontFamily: FontFamily = 'nunito'): string => {
+  return FONTS[fontFamily];
 };
 

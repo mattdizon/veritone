@@ -48,13 +48,12 @@ const ShoppingItemCard = ({
             textDecoration={item.purchased ? 'line-through' : 'none'}
             sx={{ 
               mb: 0.5,
-              fontFamily: 'var(--font-nunito), sans-serif',
               fontWeight: 600,
               fontSize: '16px',
               lineHeight: '20px',
               letterSpacing: '0px',
               textAlign: 'left',
-              color: item.purchased ? '#9e9e9e' : undefined,
+              color: '#9e9e9e',
             }}
           >
             {item.itemName}
@@ -62,13 +61,12 @@ const ShoppingItemCard = ({
           <Paragraph
             textDecoration={item.purchased ? 'line-through' : 'none'}
             sx={{
-              fontFamily: 'var(--font-nunito), sans-serif',
               fontWeight: 600,
               fontSize: '14px',
               lineHeight: '20px',
               letterSpacing: '0px',
               textAlign: 'left',
-              color: item.purchased ? '#9e9e9e' : undefined,
+              color: '#9e9e9e',
             }}
           >
             {item.description}
