@@ -32,46 +32,48 @@ const ShoppingItemCard = ({
         bgcolor: 'white',
       }}
     >
-      <Checkbox
-        checked={item.purchased}
-        onChange={() => onTogglePurchased(item.id)}
-        sx={{
-          color: '#1976d2',
-          '&.Mui-checked': {
-            color: '#1976d2',
-          },
-        }}
-      />
-      <Box sx={{ flex: 1 }}>
-        <Paragraph
-          textDecoration={item.purchased ? 'line-through' : 'none'}
-          sx={{ 
-            mb: 0.5,
-            fontFamily: 'var(--font-nunito), sans-serif',
-            fontWeight: 600,
-            fontSize: '16px',
-            lineHeight: '20px',
-            letterSpacing: '0px',
-            textAlign: 'center',
-            color: item.purchased ? '#9e9e9e' : undefined,
-          }}
-        >
-          {item.itemName}
-        </Paragraph>
-        <Paragraph
-          textDecoration={item.purchased ? 'line-through' : 'none'}
+      <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, flex: 1 }}>
+        <Checkbox
+          checked={item.purchased}
+          onChange={() => onTogglePurchased(item.id)}
           sx={{
-            fontFamily: 'var(--font-nunito), sans-serif',
-            fontWeight: 600,
-            fontSize: '14px',
-            lineHeight: '20px',
-            letterSpacing: '0px',
-            textAlign: 'center',
-            color: item.purchased ? '#9e9e9e' : undefined,
+            color: '#1976d2',
+            '&.Mui-checked': {
+              color: '#1976d2',
+            },
           }}
-        >
-          {item.description}
-        </Paragraph>
+        />
+        <Box sx={{ flex: 1 }}>
+          <Paragraph
+            textDecoration={item.purchased ? 'line-through' : 'none'}
+            sx={{ 
+              mb: 0.5,
+              fontFamily: 'var(--font-nunito), sans-serif',
+              fontWeight: 600,
+              fontSize: '16px',
+              lineHeight: '20px',
+              letterSpacing: '0px',
+              textAlign: 'left',
+              color: item.purchased ? '#9e9e9e' : undefined,
+            }}
+          >
+            {item.itemName}
+          </Paragraph>
+          <Paragraph
+            textDecoration={item.purchased ? 'line-through' : 'none'}
+            sx={{
+              fontFamily: 'var(--font-nunito), sans-serif',
+              fontWeight: 600,
+              fontSize: '14px',
+              lineHeight: '20px',
+              letterSpacing: '0px',
+              textAlign: 'left',
+              color: item.purchased ? '#9e9e9e' : undefined,
+            }}
+          >
+            {item.description}
+          </Paragraph>
+        </Box>
       </Box>
       <IconButton
         onClick={() => onEdit(item)}
